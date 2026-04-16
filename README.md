@@ -22,6 +22,8 @@ End users should install the prebuilt APK from the GitHub Releases page instead 
 
 ## Precheck a Messenger build
 
+Most users can skip this section.
+
 This is only needed if you want to test compatibility from source before trusting a Messenger update.
 
 If you do not already have a local checkout, start with:
@@ -31,11 +33,20 @@ git clone https://github.com/<your-account>/messenger-cleaner-lsposed.git
 cd messenger-cleaner-lsposed
 ```
 
+Use the device check only if all of these are true:
+
+- your phone is plugged into the computer or reachable over ADB
+- `USB debugging` is enabled
+- `adb` is installed on the computer
+- Messenger is installed on that phone
+
 Check the Messenger currently installed on your phone:
 
 ```bash
 ./scripts/precheck-messenger.sh --device
 ```
+
+Use the APK check if you already have a Messenger APK file and do not want to use a plugged-in phone:
 
 Check a specific Messenger APK file:
 
@@ -64,5 +75,7 @@ git clone https://github.com/<your-account>/messenger-cleaner-lsposed.git
 cd messenger-cleaner-lsposed
 ./scripts/build-module.sh
 ```
+
+This requires a working Android build environment on your computer.
 
 The built APK is written under `app/build/outputs/apk/`.

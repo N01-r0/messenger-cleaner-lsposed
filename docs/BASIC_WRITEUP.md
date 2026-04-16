@@ -58,6 +58,8 @@ Add your own screenshots later in `docs/assets/` and replace these placeholders.
 
 The project includes a precheck workflow so a Messenger version can be reviewed before relying on it.
 
+Most end users do not need this. It is mainly for source users who want to test a Messenger update before trusting it.
+
 If you do not already have a local checkout, start with:
 
 ```bash
@@ -65,13 +67,20 @@ git clone https://github.com/<your-account>/messenger-cleaner-lsposed.git
 cd messenger-cleaner-lsposed
 ```
 
-Run against the device:
+Run against the device only if:
+
+- the phone is connected over ADB
+- USB debugging is enabled
+- `adb` is installed on the computer
+- Messenger is installed on that phone
+
+Then run:
 
 ```bash
 ./scripts/precheck-messenger.sh --device
 ```
 
-Run against a specific APK:
+If you already have a Messenger APK file, you can test that instead and no connected phone is required:
 
 ```bash
 ./scripts/precheck-messenger.sh /path/to/base.apk
