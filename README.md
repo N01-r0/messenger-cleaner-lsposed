@@ -1,3 +1,6 @@
+# Thank you to https://github.com/C10udburst/MessengerEx for providing the complete work - this module is an April 2026 update, continuing the work from Cloudburst
+
+
 # messenger-cleaner-lsposed
 
 LSPosed module for removing Meta AI surfaces, inbox ads, and other unwanted Messenger promo surfaces while keeping normal chats, thread navigation, and people search usable.
@@ -12,7 +15,7 @@ The current hook set was developed against Messenger `556.0.0.59.68` (`com.faceb
 
 ## Install
 
-End users should install the prebuilt APK from the GitHub Releases page instead of building from source.
+You can either install the prebuilt APK from releases or build from source.
 
 1. Download the latest module APK from `Releases`.
 2. Install the APK on the phone.
@@ -22,9 +25,7 @@ End users should install the prebuilt APK from the GitHub Releases page instead 
 
 ## Precheck a Messenger build
 
-Most users can skip this section.
-
-This is only needed if you want to test compatibility from source before trusting a Messenger update.
+This is only needed if you want to test compatibility from source before trusting a Messenger update. 
 
 If you do not already have a local checkout, start with:
 
