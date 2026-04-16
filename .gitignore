@@ -1,0 +1,20 @@
+.gradle/
+build/
+app/build/
+analysis/decompiled/base/build/
+*.iml
+local.properties
+
+# Reverse-engineering artifacts and pulled APKs
+analysis/apk/
+analysis/decompiled/
+
+# Local runtime capture and QA output
+live-check-*/
+reports/
+
+# Reference clone used during development
+reference/
+
+# Local notes and device dumps that should not be published
+notes/device-modules_config.db

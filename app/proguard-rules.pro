@@ -1,0 +1,5 @@
+-keep class dev.or10n.messengercleaner.** { *; }
+-keep class org.luckypray.dexkit.** { *; }
+-keep class org.jf.dexlib2.** { *; }
+-keep class de.robv.android.xposed.** { *; }
+-keepattributes *Annotation*
