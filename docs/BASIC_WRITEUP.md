@@ -58,24 +58,29 @@ Add your own screenshots later in `docs/assets/` and replace these placeholders.
 
 The project includes a precheck workflow so a Messenger version can be reviewed before relying on it.
 
+If you do not already have a local checkout, start with:
+
+```bash
+git clone https://github.com/<your-account>/messenger-cleaner-lsposed.git
+cd messenger-cleaner-lsposed
+```
+
 Run against the device:
 
 ```bash
-cd /home/or10n/Documents/MessengerLsposed
 ./scripts/precheck-messenger.sh --device
 ```
 
 Run against a specific APK:
 
 ```bash
-cd /home/or10n/Documents/MessengerLsposed
 ./scripts/precheck-messenger.sh /path/to/base.apk
 ```
 
 Generated reports:
-- [latest.md](/home/or10n/Documents/MessengerLsposed/reports/latest.md)
-- [latest.html](/home/or10n/Documents/MessengerLsposed/reports/latest.html)
-- [latest.json](/home/or10n/Documents/MessengerLsposed/reports/latest.json)
+- `reports/latest.md`
+- `reports/latest.html`
+- `reports/latest.json`
 
 The precheck currently looks for:
 - Meta AI kill-switch signatures

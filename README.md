@@ -20,21 +20,26 @@ End users should install the prebuilt APK from the GitHub Releases page instead 
 4. Force-stop Messenger or reboot the phone.
 5. Open `Chats`, `Notifications`, and the main menu once to do a quick smoke test.
 
-## Check your Messenger version first
+## Precheck a Messenger build
 
-If you want to test compatibility before updating Messenger or before trusting a new APK, run the precheck script.
+This is only needed if you want to test compatibility from source before trusting a Messenger update.
+
+If you do not already have a local checkout, start with:
+
+```bash
+git clone https://github.com/<your-account>/messenger-cleaner-lsposed.git
+cd messenger-cleaner-lsposed
+```
 
 Check the Messenger currently installed on your phone:
 
 ```bash
-cd /home/or10n/Documents/MessengerLsposed
 ./scripts/precheck-messenger.sh --device
 ```
 
 Check a specific Messenger APK file:
 
 ```bash
-cd /home/or10n/Documents/MessengerLsposed
 ./scripts/precheck-messenger.sh /path/to/base.apk
 ```
 
@@ -55,7 +60,8 @@ The script writes a readable report to:
 This is only needed if you are developing or changing the module yourself.
 
 ```bash
-cd /home/or10n/Documents/MessengerLsposed
+git clone https://github.com/<your-account>/messenger-cleaner-lsposed.git
+cd messenger-cleaner-lsposed
 ./scripts/build-module.sh
 ```
 
