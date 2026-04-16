@@ -1,46 +1,62 @@
 # messenger-cleaner-lsposed
 
-LSPosed module workspace for suppressing Messenger inbox ads and Meta AI entry points without breaking core messaging and search flows.
+LSPosed module for removing Meta AI surfaces, inbox ads, and other unwanted Messenger promo surfaces while keeping normal chats, thread navigation, and people search usable.
 
-## Scope
+The current hook set was developed against Messenger `556.0.0.59.68` (`com.facebook.orca`).
 
-- This project is independent from `Gesfix`.
-- `Gesfix` is reference-only and is not part of this build.
-- The current hook logic targets Messenger `556.0.0.59.68` (`com.facebook.orca`).
+## What it removes
 
-## Layout
+- Meta AI entry points and related feature gates
+- inbox ads
+- menu surfaces such as `Chat with AIs`, `Create an AI`, `Facebook Reels`, `Facebook Events`, and `Chat moments`
 
-- `app/`: LSPosed module source
-- `analysis/`: pulled APKs and decoded output
-- `reference/`: external reference code snapshots
-- `scripts/`: repeatable pull/decode/build helpers
-- `notes/`: version notes and signature observations
+## Install
 
-## Quick start
+End users should install the prebuilt APK from the GitHub Releases page instead of building from source.
+
+1. Download the latest module APK from `Releases`.
+2. Install the APK on the phone.
+3. Open `LSPosed`, enable `Messenger Cleaner`, and scope it to `com.facebook.orca`.
+4. Force-stop Messenger or reboot the phone.
+5. Open `Chats`, `Notifications`, and the main menu once to do a quick smoke test.
+
+## Check your Messenger version first
+
+If you want to test compatibility before updating Messenger or before trusting a new APK, run the precheck script.
+
+Check the Messenger currently installed on your phone:
 
 ```bash
 cd /home/or10n/Documents/MessengerLsposed
-./scripts/pull-messenger-apks.sh
-./scripts/decode-messenger-base.sh
-./scripts/precheck-messenger.sh analysis/apk/base.apk
+./scripts/precheck-messenger.sh --device
+```
+
+Check a specific Messenger APK file:
+
+```bash
+cd /home/or10n/Documents/MessengerLsposed
+./scripts/precheck-messenger.sh /path/to/base.apk
+```
+
+The script writes a readable report to:
+
+- `reports/latest.md`
+- `reports/latest.html`
+- `reports/latest.json`
+
+### How to read the result
+
+- `low`: core hook signatures were found; the build looks structurally compatible, but you should still do a short in-app smoke test.
+- `medium`: core hooks may still work, but UI/menu surfaces probably moved; only update if you can verify immediately.
+- `high`: required hook signatures were not found; do not trust that Messenger build until the module is reviewed and updated.
+
+## Build from source
+
+This is only needed if you are developing or changing the module yourself.
+
+```bash
+cd /home/or10n/Documents/MessengerLsposed
 ./scripts/build-module.sh
 ```
 
-## Current strategy
-
-- Disable Meta AI through Messenger mobile-config kill switches and AI plugin gates.
-- Filter inbox lists to strip `InboxAdsItem` instances after Messenger assembles them.
-- Avoid patching messaging and people-search core flows.
-
-## Compatibility strategy
-
-- Prefer string/signature discovery over hardcoded version checks.
-- Log the live Messenger `versionCode` and resolved hook counts at startup.
-- Use `scripts/precheck-messenger.sh <base.apk>` or `scripts/precheck-messenger.sh --device` before trusting a new Messenger update.
-- Keep brittle class-name fallbacks only as a last resort.
-
-## Precheck output
-
-- `reports/latest.md`: human-readable summary for quick review in the IDE
-- `reports/latest.html`: browser-friendly summary
-- `reports/latest.json`: machine-readable output for automation
+The built APK is written under `app/build/outputs/apk/`.

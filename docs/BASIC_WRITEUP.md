@@ -95,17 +95,13 @@ The precheck currently looks for:
 
 ## Current Status
 
-- standalone workspace created outside `Gesfix`
 - Messenger APK pull/decode workflow in place
 - LSPosed module scaffolded and buildable
 - device-side precheck report generation working
 - compatibility logic improved to reduce dependence on a single Messenger version
 
-## Git / Publishing Note
+## Install / Distribution
 
-GitHub connector access is available for the account currently connected in this session, but this workspace is not currently attached to a git repository.
+Normal users should install the prebuilt LSPosed module APK from the repository's `Releases` page.
 
-If you want this published next, the remaining step is to decide where it should live:
-- existing repository
-- new repository
-- local git init first, then push
+Building from source is only necessary if you want to modify the hooks or test local changes yourself.
